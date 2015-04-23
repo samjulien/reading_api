@@ -10,8 +10,9 @@ module ReadingApi
   class Application < Rails::Application
     config.middleware.use Rack::Cors do
         allow do
-            origins "*"
-            resource "*", headers: :any, methods: [:get, :post, :put, :delete, :options]
+            origins '*'
+            resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options],
+            credentials: true
         end
     end
     # Settings in config/environments/* take precedence over those specified here.

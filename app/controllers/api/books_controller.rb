@@ -1,5 +1,7 @@
 module Api
 	class BooksController < ApplicationController
+		skip_before_filter :verify_authenticity_token
+		
 		def index
 			books = Book.all
 
@@ -32,7 +34,7 @@ module Api
 
 		def book_params
 		  params.require(:book).permit(:title, :rating, 
-		  	:author, :genre_id, :review, :amazon_id)
+		  	:author, :genre_id, :review, :amazon_id, :authenticity_token)
 		end
 
 	end
